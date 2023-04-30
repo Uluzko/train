@@ -72,13 +72,15 @@ document.body.append(header, area, keyboardLayout, description, instruction);
 
 
 let layout = layouts[0];
+//layout = local;
 let local = JSON.parse(localStorage.getItem("lang"));
 let isEqual = JSON.stringify(local) === JSON.stringify(layouts[2])
 if (isEqual) {
   keyboardLayout.classList.add("eng")
 }
 
-init(local);
+init(local ?? layout);
+
 
 
 document.addEventListener("keydown", keyboardClickDown);
