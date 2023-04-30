@@ -79,7 +79,11 @@ if (isEqual) {
   keyboardLayout.classList.add("eng")
 }
 
-init(local ?? layouts[0]);
+if (local) {
+  init(local);
+} else init(layouts[0])
+
+//init(local ?? layouts[0]);
 //init (layouts[0])
 
 
@@ -157,6 +161,7 @@ function keyboardClickDown (event) {
   }
 
   keyboardLayout.classList.contains("eng") ? layout = layouts[2] : layout = layouts[0];
+  console.log(layout);
   localStorage.setItem("lang", JSON.stringify(layout));
 
   keyboardLayout.classList.contains("caps") && !keyboardLayout.classList.contains("eng") ? init(layouts[1]) :
