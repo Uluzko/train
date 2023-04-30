@@ -1,0 +1,91 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(Bg2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Trebuchet MS', sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+.header {
+  font-size: 30px;
+  margin: 40px 0 50px;
+  color: aliceblue;
+}
+
+.textarea {
+  width: 59%;
+  background: transparent;
+  color: aliceblue;
+  text-shadow: 0 0 10px rgb(255, 255, 255, 0.7);
+  font-size: 18px;
+  border: 1px solid #c2c2db;
+  border-radius: 3px;
+}
+
+.textarea:focus {
+  outline: none;
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* width: 60%; */
+  width: 768px;
+  padding: 5px;
+  margin: 30px 0;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border: 1px solid #c2c2db;
+  margin: 3px;
+  border-radius: 3px;
+  color: #c2c2db;
+  box-shadow: 0px 0px 10px #404795, inset 0px 0px 8px #404795;
+  text-shadow: 0 3px 10px rgb(255, 255, 255, 0.7);
+  transition-duration: 0.5s;
+}
+
+.key:hover {
+  background-color: rgba(52, 46, 104, 0.548);
+}
+
+.key[data-code="Backspace"],
+.key[data-code="CapsLock"],
+.key[data-code="ShiftLeft"] {
+  width: 100px;
+}
+
+.key[data-code="Enter"],
+.key[data-code="ShiftRight"] {
+  width: 89px;
+}
+
+.key[data-code="Tab"] {
+  width: 55px;
+}
+
+.key[data-code="Space"] {
+  width: 346px;
+}
+
+.active {
+  box-shadow: inset 0px 0px 20px #5862cc;
+  transform: scale(0.95);
+}
+
+.par {
+  font-size: 15px;
+  margin: 5px 0;
+  color: aliceblue;
+}
