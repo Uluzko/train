@@ -71,16 +71,16 @@ instruction.textContent = "Для переключения языка комби
 document.body.append(header, area, keyboardLayout, description, instruction);
 
 
-let layout = layouts[0];
+let layout;
 
-// let local = JSON.parse(localStorage.getItem("lang"));
-// let isEqual = JSON.stringify(local) === JSON.stringify(layouts[2])
-// if (isEqual) {
-//   keyboardLayout.classList.add("eng")
-// }
+let local = JSON.parse(localStorage.getItem("lang"));
+let isEqual = JSON.stringify(local) === JSON.stringify(layouts[2])
+if (isEqual) {
+  keyboardLayout.classList.add("eng")
+}
 
-//init(local ?? layout);
-init (layout)
+init(local ?? layouts[0]);
+//init (layouts[0])
 
 
 
