@@ -79,19 +79,20 @@ if (isEqual) {
   keyboardLayout.classList.add("eng")
 }
 
-if (local) {
-  init(local);
-} else init(layouts[0])
+// if (local) {
+//   init(local);
+// } else init(layouts[0])
 
-//init(local ?? layouts[0]);
-//init (layouts[0])
+init(local ?? layouts[0]);
+
 
 
 
 document.addEventListener("keydown", keyboardClickDown);
 document.addEventListener("keyup", keyboardClickUp);
-keyboardLayout.addEventListener('mousedown', handleClickDown);
-keyboardLayout.addEventListener("mouseup", handleClickUp);
+document.addEventListener('mousedown', handleClickDown);
+document.addEventListener("mouseup", handleClickUp);
+
 
 
 
@@ -111,30 +112,19 @@ function init(layout) {
     document.querySelector('.keyboard .key[data-code="'+event.code+'"]').classList.remove("active");
     })
 
-  keyboardLayout.addEventListener("mousedown", function(event) {
-    if (!event.target.dataset.key) {
-      return;
-    }
-    event.target.classList.add("active");
-  })
-
-  keyboardLayout.addEventListener("mouseup", function(event) {
-    event.target.classList.remove("active");
-  })
-
 }
 
 
 function keyboardClickDown (event) {
   event.preventDefault();
   let text = document.querySelector('.keyboard .key[data-code="'+event.code+'"]').textContent;
-  if (event.ctrlKey || event.altKey || event.metaKey || event.code === "Delete") {
+  if (event.ctrlKey || event.altKey || event.metaKey) {
     text = "";
   }
   if (event.code === "Tab") {
     text = "   ";
   }
-  if (event.code === "Backspace") {
+  if (event.code === "Backspace" || event.code === "Delete") {
     area.value = area.value.substring(0, area.value.length - 1);
     text = "";
   }
@@ -161,7 +151,6 @@ function keyboardClickDown (event) {
   }
 
   keyboardLayout.classList.contains("eng") ? layout = layouts[2] : layout = layouts[0];
-  console.log(layout);
   localStorage.setItem("lang", JSON.stringify(layout));
 
   keyboardLayout.classList.contains("caps") && !keyboardLayout.classList.contains("eng") ? init(layouts[1]) :
@@ -200,7 +189,7 @@ function handleClickDown (event) {
     text = "   ";
   }
 
-  if (text === "Backspace") {
+  if (text === "Backspace" || text === "Del") {
     area.value = area.value.substring(0, area.value.length - 1);
     text = "";
   }

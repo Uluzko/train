@@ -79,7 +79,7 @@ body {
   width: 346px;
 }
 
-.active {
+.key.active {
   box-shadow: inset 0px 0px 20px #5862cc;
   transform: scale(0.95);
 }
